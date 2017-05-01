@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="starter">
+<head>
+    <title></title>
+  <link href="/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="/bower_components/tether/dist/js/tether.min.js"></script>
+  <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+  <script src="/bower_components/angular/angular.js"></script>
+  <script src="/bower_components/angular-route/angular-route.js"></script>
+  <script src="/bower_components/angular-resource/angular-resource.js"></script>
+  <script src="js/app.js"></script>
+
+
+</head>
+
+<body ng-controller="AppController" >
+<!-- Navigation -->
+ 
+<div class="container">
+<br>
+<center>  <h1>รายการสั่งซื้อ</h1> </center>  <br/>
+    <div class="row">
+        
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>สินค้า</th>
+                        <th></th>
+                        <th> </th>
+                        <th></th>
+                        <th> </th>
+                    </tr>
+                </thead>
+                   
+                        <td class="col-sm-8 col-md-6">
+             <div ng-repeat="buystore in buystores track by $index" ng-if="!isEmpty(buystore)">
+
+                        <div class="media">
+                            <a class="thumbnail pull-left" href="#"> <img src="img/{{buystore.pic}}" style="width:100px;height:100px;"></a>
+                            <div class="media-body"><ul>
+                                <h4 class="media-heading">ชื่อสินค้า: {{buystore.message}}</h4>
+                                <span>สถานะ: </span><span class="text-success"><strong>In Stock</strong></span><br>
+                                <span>ราคา: {{buystore.share}} </span></ul><br>
+                            </tr>
+                        </div>
+                    </div>  
+                </div>
+
+                    <tr>
+                        <td>   </td>
+                        <td>   </td>
+                        <td>   </td>
+                        <td><h3>Total</h3></td>
+                        <td class="text-right"><h3><strong>{{sums[0].sums}}</strong></h3></td>
+                    </tr>
+                    <tr>
+                        <td>   </td>
+                        <td>   </td>
+                        <td>   </td>
+                        <td><a href="index.html" class="btn btn-primary">ซื้อสินค้า!</a></td>
+                        <td>
+                        <button type="button" class="btn btn-success">
+                            Checkout <span class="glyphicon glyphicon-play"></span>
+                        </button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

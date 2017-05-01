@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html ng-app="starter">
+
+<head>
+  <meta charset="utf-8">
+
+  <title></title>
+  <script src="/bower_components/angular/angular.js"></script>
+  <script src="/bower_components/angular-route/angular-route.js"></script>
+  <script src="/bower_components/angular-resource/angular-resource.js"></script>
+
+  <link href="/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="/bower_components/tether/dist/js/tether.min.js"></script>
+  <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+</head>
+
+<body ng-controller="AppController">
+  <!-- <div class="">
+    <b> Result: </b>
+    <font color="red">{{result}} </font>
+  </div> -->
+  <div class="container">
+  <center>  <h1>คลังสินค้า</h1> </center>  <br/>
+  </div>
+  <div class="container">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th></th>
+          <th>ชื่อสินค้า</th>
+          <th>รูป</th>
+          <th>ราคา</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="project in projects track by $index" ng-if="!isEmpty(project)">
+          <td scope="row">{{ $index+1 }}</td>
+          <td>{{project.message}}</td>
+          <td><img src="img/{{project.pic}}" style="width:50px;height:50px;"></td>
+          <td>{{project.share}}</td>
+          <td>
+            <!-- <button type="button" ng-click="get(project.id)" class="btn btn-info">get</button> -->
+            <button type="button" ng-click="edit(project.id)" class="btn btn-warning">edit</button>
+            <button type="button" ng-click="delete(project.id)" class="btn btn-danger">delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="row">
+      <div class="col-6">
+        <h2>เพิ่มสินค้า</h2>
+        <label for="basic-url">ชื่อสินค้า</label>
+        <div class="input-group">
+          <input type="text" class="form-control" id="basic-url" ng-model="addProject.message" ng-init="addProject.message=''">
+        </div>
+        <br><label for="basic-url">รูป</label>
+        <div class="input-group">
+          <input type="text" class="form-control" id="basic-url" ng-model="addProject.pic">
+        </div>
+        <br><label for="basic-url">ราคา</label>
+        <div class="input-group">
+          <input type="text" class="form-control" id="basic-url" ng-model="addProject.share">
+        </div>
+        <br>
+        <button class="btn btn-primary" ng-click="add()">เพิ่ม</button>
+        <br>
+      </div>
+      <div class="col-6">
+        <h2>แก้ไข</h2>
+        <input type="hidden" id="id" ng-model="editProject.id">
+        <label for="basic-url">ชื่อสินค้า</label>
+        <div class="input-group">
+          <input type="text" class="form-control" id="basic-url" ng-model="editProject.message" ng-init="addProject.message=''">
+        </div>
+        <br><label for="basic-url">รูป</label>
+        <div class="input-group">
+          <input type="text" class="form-control" id="basic-url" ng-model="editProject.pic">
+        </div>
+        <br><label for="basic-url">ราคา</label>
+        <div class="input-group">
+          <input type="text" class="form-control" id="basic-url" ng-model="editProject.share">
+        </div>
+        <br>
+        <button class="btn btn-primary" ng-click="update(editProject.id)">แก้ไข</button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- angular templating -->
+  <!-- this is where content will be injected -->
+  <!-- <div ng-view></div> -->
+  <!-- core script  app -->
+  <script src="js/app.js"></script>
+
+</body>
+
+</html>
